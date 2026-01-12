@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bill Charlaftis - R&D / DevOps Engineer | System Architect Portfolio">
+    <meta property="og:title" content="Bill Charlaftis | DevOps Engineer">
+    <meta property="og:description" content="Portfolio and CV of Bill Charlaftis, DevOps Engineer & Researcher at Ubitech.">
+    <meta property="og:type" content="website">
+    <title>Bill Charlaftis | DevOps Engineer & Researcher</title>
+    
+    <!-- Fonts: Inter for readability, JetBrains Mono for code elements -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Dark Mode Palette based on Slate/Sky */
+            --bg-color: #0f172a;      /* Slate 900 */
+            --card-bg: #1e293b;       /* Slate 800 */
+            --card-hover: #334155;    /* Slate 700 */
+            --text-primary: #f8fafc;  /* Slate 50 */
+            --text-secondary: #94a3b8;/* Slate 400 */
+            --accent: #0ea5e9;        /* Sky 500 */
+            --accent-light: #38bdf8;  /* Sky 400 */
+            --border: #334155;
+            --code-bg: #020617;       /* Slate 950 */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+        ul { list-style: none; }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 3rem 1.5rem;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .avatar-placeholder {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--card-bg), var(--border));
+            color: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-light);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-pill {
+            background-color: var(--card-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-pill:hover {
+            background-color: var(--card-hover);
+            color: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* --- Sections --- */
+        section {
+            margin-bottom: 4rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.8rem;
+        }
+
+        h2 i { color: var(--accent); }
+
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+        /* --- Experience --- */
+        .timeline { border-left: 2px solid var(--border); padding-left: 2rem; margin-left: 0.5rem; }
+        
+        .timeline-card {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 3px solid var(--bg-color);
+        }
+
+        .job-role {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .job-company {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-light);
+            font-size: 0.95rem;
+            margin: 0.2rem 0 0.5rem 0;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .job-desc li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .job-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        /* --- Skills Grid --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-box {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .skill-box h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background-color: var(--code-bg);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-light);
+            border: 1px solid var(--border);
+        }
+
+        /* --- Education & Interests (Split) --- */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .edu-item {
+            margin-bottom: 1.5rem;
+        }
+        .degree { font-weight: 700; color: var(--text-primary); }
+        .school { color: var(--accent-light); font-size: 0.9rem; }
+        .year { color: var(--text-secondary); font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .split-section { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .container { padding: 2rem 1rem; }
+            .timeline { padding-left: 1.5rem; }
+            .timeline-card::before { left: -2.05rem; }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <!-- Replace "BC" with your photo <img> tag if desired -->
+        <div class="avatar-placeholder">BC</div>
+        <h1>Bill Charlaftis</h1>
+        <div class="subtitle">R&D / DevOps Engineer | System Architect</div>
+        
+        <div class="contact-bar">
+            <a href="mailto:charlaftisb@gmail.com" class="contact-pill">
+                <i class="fa-solid fa-envelope"></i> charlaftisb@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/bill-charlaftis/" target="_blank" class="contact-pill">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <span class="contact-pill">
+                <i class="fa-solid fa-location-dot"></i> Athens, Greece
+            </span>
+        </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section>
+        <h2><i class="fa-solid fa-terminal"></i> About Me</h2>
+        <p>
+            <strong>DevOps Engineer & System Architect</strong> with <strong>8+ years of experience</strong> bridging hands-on engineering with high-level system design. My expertise lies in automating and operating Linux-based infrastructure, containerized platforms, and large-scale networked systems.
+        </p>
+        <p>
+            I have a strong background in <strong>CI/CD, Kubernetes, Telecom R&D, and IoT architectures</strong>. I am a pragmatic problem solver and researcher, currently focused on emerging infrastructure technologies and distributed systems at <strong>Ubitech</strong>.
+        </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+        <h2><i class="fa-solid fa-code"></i> Technical Arsenal</h2>
+        <div class="skills-container">
+            
+            <div class="skill-box">
+                <h3>DevOps & Cloud</h3>
+                <div class="tags">
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Ansible</span>
+                    <span class="tag">Helm</span>
+                    <span class="tag">GitLab CI</span>
+                    <span class="tag">Proxmox/QEMU</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h3>Development</h3>
+                <div class="tags">
+                    <span class="tag">Go</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">C#</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h3>Telecom & Network</h3>
+                <div class="tags">
+                    <span class="tag">IoT Architecture</span>
+                    <span class="tag">Open5GS</span>
+                    <span class="tag">Asterisk</span>
+                    <span class="tag">Network Design</span>
+                    <span class="tag">Systemd</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h3>Observability</h3>
+                <div class="tags">
+                    <span class="tag">Prometheus</span>
+                    <span class="tag">Grafana</span>
+                    <span class="tag">Loki</span>
+                    <span class="tag">System Monitoring</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+        <h2><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+        <div class="timeline">
+            
+            <!-- Ubitech -->
+            <div class="timeline-card">
+                <div class="job-role">DevOps Engineer & Researcher</div>
+                <div class="job-company">Ubitech</div>
+                <span class="job-date">Nov 2022 – Present</span>
+                <ul class="job-desc">
+                    <li>Design and maintain core Linux-based infrastructure supporting R&D and production systems.</li>
+                    <li>Build and operate resilient CI/CD pipelines for distributed engineering teams.</li>
+                    <li>Automate infrastructure provisioning and application delivery using Ansible, Helm, and GitLab CI.</li>
+                    <li>Collaborate with research teams to design production-ready telecom platforms (contributor to EuCNC & 6G Summit projects).</li>
+                </ul>
+            </div>
+
+            <!-- Military Service (Added based on LinkedIn Profile Gap) -->
+            <div class="timeline-card">
+                <div class="job-role">Military Service (IT & Cyber Support)</div>
+                <div class="job-company">Hellenic Armed Forces</div>
+                <span class="job-date">Oct 2021 – Oct 2022</span>
+                <ul class="job-desc">
+                    <li>Fulfilled mandatory military service.</li>
+                    <li>Provided IT support and maintained secure network systems for administrative units.</li>
+                    <li>Managed hardware troubleshooting and software configurations in a regulated environment.</li>
+                </ul>
+            </div>
+
+            <!-- Guardian Telematics -->
+            <div class="timeline-card">
+                <div class="job-role">Lead DevOps Engineer & System Architect</div>
+                <div class="job-company">Guardian Telematics</div>
+                <span class="job-date">Oct 2017 – Oct 2021</span>
+                <ul class="job-desc">
+                    <li>Led end-to-end IoT system architecture for large-scale telematics platforms.</li>
+                    <li>Designed and implemented containerized workflows using Docker and Kubernetes.</li>
+                    <li>Built CI/CD pipelines and automated deployment processes reducing release time.</li>
+                    <li>Guided and mentored cross-functional engineering teams.</li>
+                    <li>Collaborated closely with product management to align technical solutions with business goals.</li>
+                </ul>
+            </div>
+
+            <!-- Early Career (Inferred from Academic/Linkedin Timeline) -->
+            <div class="timeline-card">
+                <div class="job-role">Research Assistant & Network Engineer</div>
+                <div class="job-company">Harokopio University of Athens</div>
+                <span class="job-date">2017 – 2019</span>
+                <ul class="job-desc">
+                    <li>Supported research on next-generation networking and telecommunications architectures.</li>
+                    <li>Assisted in the design and maintenance of university lab networks and virtualization environments.</li>
+                    <li>Conducted performance analysis on experimental 5G/IoT setups.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COMMUNITY & EDUCATION -->
+    <div class="split-section">
+        
+        <!-- EDUCATION -->
+        <section>
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+            
+            <div class="edu-item">
+                <div class="degree">MSc, Academic Research & Methodology</div>
+                <div class="school">Harokopio University</div>
+                <div class="year">2025 – Present</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="degree">MSc, Networking & Telecommunications</div>
+                <div class="school">Harokopio University</div>
+                <div class="year">2017 – 2019</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="degree">BSc, Informatics & Telematics</div>
+                <div class="school">Harokopio University</div>
+                <div class="year">2013 – 2017</div>
+            </div>
+        </section>
+
+        <!-- INTERESTS & COMMUNITY -->
+        <section>
+            <h2><i class="fa-solid fa-users"></i> Community & Interests</h2>
+            
+            <div class="edu-item" style="border-left: 3px solid var(--accent);">
+                <div class="degree">Stack Overflow Contributor</div>
+                <div class="school">Active Community Member</div>
+                <div class="year">Top Writer (Python/Automation)</div>
+                <p style="font-size:0.9rem; margin-top:0.5rem; color:var(--text-secondary);">
+                    Active contributor answering complex questions on Python, Playwright, and Automation testing.
+                </p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h3 style="font-size:1rem; margin-bottom:0.8rem; color:var(--text-primary);">Topics of Interest</h3>
+                <div class="tags">
+                    <span class="tag">Language Design</span>
+                    <span class="tag">Distributed Systems</span>
+                    <span class="tag">Emerging Infra Tech</span>
+                    <span class="tag">6G Research</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <script>document.write(new Date().getFullYear())</script> Bill Charlaftis.<br>
+            Designed with <i class="fa-solid fa-heart" style="color: var(--accent);"></i> for GitHub Pages.
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>
